@@ -425,7 +425,7 @@ public class Ventana extends javax.swing.JFrame {
             lab7.setText("La solución del P.V.I. es:");
             lab8.setIcon(d.getFormula());
         } else {
-            //hideLabels();
+            hideLabels();
             mostrar();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
