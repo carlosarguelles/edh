@@ -111,36 +111,36 @@ public class Ventana extends javax.swing.JFrame {
             .addComponent(lab1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lab2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lab8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lab6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lab3, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lab5, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lab7, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lab3, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lab5, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lab8, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(lab1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lab2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lab2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lab3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lab4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lab4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lab5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lab6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lab6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lab7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lab8, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+                .addComponent(lab8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         lab1.getAccessibleContext().setAccessibleDescription("");
@@ -179,11 +179,6 @@ public class Ventana extends javax.swing.JFrame {
         fieldC.setFont(new java.awt.Font("Latin Modern Math", 0, 20)); // NOI18N
         fieldC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fieldC.setBorder(null);
-        fieldC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldCActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Latin Modern Roman", 2, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -194,20 +189,10 @@ public class Ventana extends javax.swing.JFrame {
         jLabel5.setText("= 0");
 
         cb1.setText("¿PVI?");
-        cb1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb1ActionPerformed(evt);
-            }
-        });
 
         x01.setFont(new java.awt.Font("Latin Modern Roman", 0, 18)); // NOI18N
         x01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         x01.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        x01.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                x01ActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("Latin Modern Math", 0, 14)); // NOI18N
         jLabel6.setText("y(");
@@ -228,11 +213,6 @@ public class Ventana extends javax.swing.JFrame {
         y01.setFont(new java.awt.Font("Latin Modern Roman", 0, 18)); // NOI18N
         y01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         y01.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        y01.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                y01ActionPerformed(evt);
-            }
-        });
 
         y02.setFont(new java.awt.Font("Latin Modern Roman", 0, 18)); // NOI18N
         y02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -374,7 +354,7 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,7 +362,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -402,6 +382,7 @@ public class Ventana extends javax.swing.JFrame {
         lab5.setVisible(false);
         lab6.setVisible(false);
         lab7.setVisible(false);
+        lab8.setVisible(false);
     }
     
     private void showLabels() {
@@ -435,8 +416,8 @@ public class Ventana extends javax.swing.JFrame {
         mostrar();
         if(cb1.isSelected()) {
             jPanel4.setEnabled(true);
-            lab6.setVisible(true);
             lab7.setVisible(true);
+            lab8.setVisible(true);
             ec.setPv1(Double.parseDouble(x01.getText()), Double.parseDouble(y01.getText()));
             ec.setPv2(Double.parseDouble(x02.getText()), Double.parseDouble(y02.getText()));
             ec.calcularPVI();
@@ -444,28 +425,10 @@ public class Ventana extends javax.swing.JFrame {
             lab7.setText("La solución del P.V.I. es:");
             lab8.setIcon(d.getFormula());
         } else {
+            //hideLabels();
             mostrar();
         }
-        System.out.println(Arrays.deepToString(ec.getSistema()));
-        System.out.println(ec.getC1());
-        System.out.println(ec.getC2());
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void fieldCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCActionPerformed
-
-    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb1ActionPerformed
-
-    private void x01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_x01ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_x01ActionPerformed
-
-    private void y01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_y01ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_y01ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
