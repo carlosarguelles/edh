@@ -309,20 +309,25 @@ public class Ecuacion {
     }
     
     public String raicesToString() {
+        String r = "";
         switch(caso) {
             case '1':
-                return "r=\\dfrac{-\\left(" + toEntero(b) + "\\right)\\pm\\sqrt{\\left(" 
+                r = "r=\\dfrac{-\\left(" + toEntero(b) + "\\right)\\pm\\sqrt{\\left(" 
                 + toEntero(b) + "^{2}\\right)-4(" + toEntero(a) + ")(" + toEntero(c) 
                 + ")}}{2(" + toEntero(a) + ")}\\quad r_{1}=" + raicesS[0] + ", r_{2}=" + raicesS[1];
+                break;
             case '2':
-                return "r=\\dfrac{-\\left(" + toEntero(b) + "\\right)\\pm\\sqrt{\\left(" 
+                r = "r=\\dfrac{-\\left(" + toEntero(b) + "\\right)\\pm\\sqrt{\\left(" 
                 + toEntero(b) + "^{2}\\right)-4(" + toEntero(a) + ")(" + toEntero(c) 
                 + ")}}{2(" + toEntero(a) + ")}\\quad r="+ getRaices(0).toString()+"\\pm"+getRaices(1).toString()+"i \\Rightarrow \\lambda=" + raicesS[0] + ",\\mu=" + raicesS[1];
+                break;
             case '3':
-                return "r=\\dfrac{-\\left(" + toEntero(b) + "\\right)\\pm{\\sqrt{\\left(" 
+                r = "r=\\dfrac{-\\left(" + toEntero(b) + "\\right)\\pm{\\sqrt{\\left(" 
                 + toEntero(b) + "^{2}\\right)-4(" + toEntero(a) + ")(" + toEntero(c) 
                 + ")}}}{2(" + toEntero(a) + ")}\\quad r_{2}=r_{1}=" + raicesS[0];
+                break;
         }
+        return r;
     }
     
     public double hallarDet(double a, double b, double c, double d) {
