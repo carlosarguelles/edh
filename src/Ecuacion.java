@@ -408,4 +408,16 @@ public class Ecuacion {
             this.c2 = dety / detg;
         }
     }
+    
+    public String pviToString() {
+        if(this.caso == '1') {
+            return "y(x)=" + toEntero(getC1()) + "e^{" + raicesS[0] + "x}" + getSigno(getC2()) 
+                    + "e^{" + raicesS[1] +"x}";
+        } else if(this.caso == '2') {
+            return "y(x)=" + toEntero(getC1()) + "e^{" + raicesS[0] + "x}\\cos\\left("+ raicesS[1] + "x\\right)" 
+                    + getSigno(getC2()) + "e^{" + raicesS[0] + "x}\\sin\\left(" + raicesS[1] + "x\\right)";
+        } else {
+            return "y(x)=" + toEntero(getC1()) + "e^{" + raicesS[0] + "x}" + getSigno(getC2()) + "xe^{" + raicesS[0] + "x}";
+        }
+    }
 }

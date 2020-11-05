@@ -11,7 +11,7 @@ public class Visualizar {
     
     public TeXIcon getFormula() {
         this.formula = new TeXFormula(math);
-        this.icon = formula.createTeXIcon(TeXConstants.ALIGN_LEFT, 26);
+        this.icon = formula.createTeXIcon(TeXConstants.ALIGN_LEFT, 22);
         return this.icon;
     }
 }
