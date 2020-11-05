@@ -249,7 +249,7 @@ public class Ecuacion {
         {
             raicesS[0] = getRaices(0).toString();
             raicesS[1] = getRaices(1).toString();
-            return "y(x)=c_{1}e^{(" + raicesS[0] + ")x}\\cos\\left(" + raicesS[1] + "x\\right)+c_{2}e^{(" + raicesS[0] + ")x}\\sin\\left(" + raicesS[1] + "x\\right)";
+            return "y(x)=c_{1}e^{" + raicesS[0] + "x}\\cos\\left(" + raicesS[1] + "x\\right)+c_{2}e^{" + raicesS[0] + "x}\\sin\\left(" + raicesS[1] + "x\\right)";
         } else
         {
             raicesS[0] = getRaices(0).toString();
