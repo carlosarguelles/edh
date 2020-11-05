@@ -292,8 +292,8 @@ public class Ventana extends javax.swing.JFrame {
         double c = Double.parseDouble(fieldC.getText());
         ec = new Ecuacion(a, b, c);
         mostrar();
-        ec.setPv1(0, 2);
-        ec.setPv2(0, 0.333333);
+        ec.setPv1(0, -2);
+        ec.setPv2(0, 1);
         ec.calcularPVI();
         System.out.println(Arrays.deepToString(ec.getSistema()));
         System.out.println(ec.getC1());
