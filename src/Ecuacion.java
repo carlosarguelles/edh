@@ -252,7 +252,7 @@ public class Ecuacion {
         String A = getSigno(a), B = getSigno(b), C = getSigno(c);
         if (A.equals("")) {
             A = "";
-        } else if (a < 0) {
+        } else if (a > 0) {
             A = A.replace("+", "") + "r^{2}";
         } else {
             A = A + "r^{2}";   
