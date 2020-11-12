@@ -266,6 +266,12 @@ public class Ecuacion {
         } else {
             B = B + "r";
         }
+        if (C.equals("+")) {
+            C = "+1";
+        }
+        if(C.equals("-")) {
+            C = "-1";
+        }
         return A + B + C + "=0";
     }
 
