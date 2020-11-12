@@ -68,20 +68,13 @@ public class Fraccion {
         }
     }
 
-    public boolean isEntero(double numero) {
-        String num = String.valueOf(numero);
-        float decNum = Float.parseFloat(num.substring(num.indexOf('.')));
-        if (decNum == .00000000)
-        {
-            return true;
-        } else
-        {
-            return false;
-        }
+    public boolean isDoubleEntero(double numero) {
+        double TOLERANCIA = 1E-5;
+        return Math.abs(Math.floor(numero) - numero) < TOLERANCIA;
     }
 
     public boolean isFraccionEntera() {
-        if (isEntero(numerador / denominador))
+        if (isDoubleEntero(numerador / denominador))
         {
             return true;
         } else
@@ -94,12 +87,9 @@ public class Fraccion {
         DecimalFormat df = new DecimalFormat("#0");
         if (numero != 0.00)
         {
-            String num = String.valueOf(numero);
-            int intNum = Integer.parseInt(num.substring(0, num.indexOf('.')));
-            float decNum = Float.parseFloat(num.substring(num.indexOf('.')));
-            if (decNum == 0.0000000000000000000000)
+            if (isDoubleEntero(numero))
             {
-                return intNum + "";
+                return (int)numero + "";
             } else
             {
                 return df.format(numero);
@@ -116,7 +106,7 @@ public class Fraccion {
 
     @Override
     public String toString() {
-        if (!isEntero(numerador))
+        if (!isDoubleEntero(numerador))
         {
             return "\\frac{\\sqrt{" + numeradorToFrac() + "}}{" + toEntero(denominador) + "}";
         } else 
