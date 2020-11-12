@@ -1,6 +1,7 @@
 
 import java.text.DecimalFormat;
 
+
 public class Ecuacion {
 
     private double a;
@@ -11,7 +12,7 @@ public class Ecuacion {
     private Fraccion raices[];
     private Fraccion raicesReducidas[];
     private String raicesS[];
-    private double pv1[], pv2[], sistema[][];
+    private double pv1[], pv2[];
     private double c1, c2;
 
     public Ecuacion(double a, double b, double c) {
@@ -24,30 +25,6 @@ public class Ecuacion {
         this.calcularRaices();
         this.c1 = 0;
         this.c2 = 0;
-    }
-
-    public double getA() {
-        return a;
-    }
-
-    public void setA(double a) {
-        this.a = a;
-    }
-
-    public double getB() {
-        return this.b;
-    }
-
-    public void setB(double b) {
-        this.b = b;
-    }
-
-    public double getC() {
-        return this.c;
-    }
-
-    public void setC(double c) {
-        this.c = c;
     }
 
     public void setPv1(double x, double y) {
@@ -88,7 +65,7 @@ public class Ecuacion {
     }
 
     public void setDet() {
-        this.det = elevarAlCuadrado(b) - 4 * (a * c);
+        this.det = Math.pow(b, 2) - 4 * (a * c);
     }
 
     public Fraccion getRaices(int pos) {
@@ -105,14 +82,6 @@ public class Ecuacion {
 
     public void setRaicesReducidas(int pos, Fraccion suma) {
         this.raicesReducidas[pos] = suma;
-    }
-
-    public double[][] getSistema() {
-        return sistema;
-    }
-
-    public double elevarAlCuadrado(double numero) {
-        return numero * numero;
     }
 
     public Fraccion[] getDeterminantes(double det) {
@@ -164,28 +133,16 @@ public class Ecuacion {
         }
     }
 
-    public boolean isEntero(double numero) {
-        String num = String.valueOf(numero);
-        float decNum = Float.parseFloat(num.substring(num.indexOf('.')));
-        if (decNum == .00000000)
-        {
-            return true;
-        } else
-        {
-            return false;
-        }
+    public boolean isDoubleEntero(double numero) {
+        double TOLERANCIA = 1E-5;
+        return Math.abs(Math.floor(numero) - numero) < TOLERANCIA;
     }
 
     public String toEntero(double numero) {
-        DecimalFormat df = new DecimalFormat("#0.00");
-        String num = String.valueOf(numero);
-        int intNum = Integer.parseInt(num.substring(0, num.indexOf('.')));
-        float decNum = Float.parseFloat(num.substring(num.indexOf('.')));
-        if (decNum == 0.00000000)
-        {
-            return intNum + "";
-        } else
-        {
+        if(isDoubleEntero(numero)) {
+            int r = (int) numero;
+            return r + "";
+        } else {
             return doubleToFraccion(numero);
         }
     }
@@ -201,7 +158,7 @@ public class Ecuacion {
             Fraccion A = getRaices(0);
             Fraccion B = getRaices(1);
             String r = "";
-            if (isEntero(B.getNumerador()))
+            if (isDoubleEntero(B.getNumerador()))
             {
                 if (A.isFraccionEntera() && B.isFraccionEntera())
                 {
@@ -262,60 +219,52 @@ public class Ecuacion {
         if (n > 0)
         {
             aux = "+" + toEntero(n);
-        } else if (n < 0)
+        } 
+        if (n < 0)
         {
             aux = "-" + toEntero(n * -1);
-        } else
+        } 
+        if(n == 1)
+        {
+            aux = "+";
+        } 
+        if(n == -1)
+        { 
+            aux = "-";
+        }
+        if(n == 0)  
         {
             aux = "";
         }
         return aux;
     }
 
-    private String doubleToFraccion(double num) {
+    public String doubleToFraccion(double num) {
         double numerador = num, denominador = 1;
         do
         {
             denominador++;
-        } while (!isEntero(numerador * denominador));
+        } while (!isDoubleEntero(numerador * denominador));
         return "\\frac{" + toEntero(numerador * denominador) + "}{" + toEntero(denominador) + "}";
     }
 
     public String ecuacionCaracteristicaToString() {
         String A = getSigno(a), B = getSigno(b), C = getSigno(c);
-        if (A.startsWith("+"))
-        {
-            if (a == 1)
-            {
-                A = "r^{2}";
-            } else
-            {
-                A = toEntero(a) + "r^{2}";
-            }
-            if (A.equals(""))
-            {
-                A = "";
-            }
+        if (A.equals("")) {
+            A = "";
+        } else if (a < 0) {
+            A = A.replace("+", "") + "r^{2}";
+        } else {
+            A = A + "r^{2}";   
         }
-        if (B.equals(""))
+        if (B == null) {
+            B = "";
+        } 
+        if(B.equals(""))
         {
             B = "";
-        } else
-        {
-            if (b == 1 || b == -1)
-            {
-                B = B.charAt(0) + "r";
-            } else
-            {
-                B = B + "r";
-            }
-        }
-        if (C.equals(""))
-        {
-            C = "";
-        } else
-        {
-            C = C + "";
+        } else {
+            B = B + "r";
         }
         return A + B + C + "=0";
     }
@@ -349,7 +298,7 @@ public class Ecuacion {
 
     public void calcularPVI() {
         double detg = 0, detx = 0, dety = 0, A = 0, B = 0, E = 0, D = 0;
-        sistema = new double[2][3];
+        double sistema[][] = new double[2][3];
         if (this.caso == '1')
         {
             double r1 = dividir(this.raicesReducidas[0].getNumerador(), this.raicesReducidas[0].getDenominador());
