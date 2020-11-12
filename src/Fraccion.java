@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 
 public class Fraccion {
 
@@ -68,14 +69,15 @@ public class Fraccion {
     }
 
     public boolean isEntero(double numero) {
-        int ent;
-        boolean isEntero = true;
-        try {
-            ent = (int) numero;
-        } catch(Exception e) {
-            isEntero = false;
+        String num = String.valueOf(numero);
+        float decNum = Float.parseFloat(num.substring(num.indexOf('.')));
+        if (decNum == .00000000)
+        {
+            return true;
+        } else
+        {
+            return false;
         }
-        return isEntero;
     }
 
     public boolean isFraccionEntera() {
@@ -89,23 +91,23 @@ public class Fraccion {
     }
 
     public String toEntero(double numero) {
-        if (isEntero(numero))
+        DecimalFormat df = new DecimalFormat("#0");
+        if (numero != 0.00)
         {
-            int intNum = (int) numero;
-            return intNum + "";
+            String num = String.valueOf(numero);
+            int intNum = Integer.parseInt(num.substring(0, num.indexOf('.')));
+            float decNum = Float.parseFloat(num.substring(num.indexOf('.')));
+            if (decNum == 0.0000000000000000000000)
+            {
+                return intNum + "";
+            } else
+            {
+                return df.format(numero);
+            }
         } else
         {
-            return doubleToFraccion(numero);
+            return 0 + "";
         }
-    }
-    
-    public String doubleToFraccion(double num) {
-        double numerador = num, denominador = 1;
-        do
-        {
-            denominador++;
-        } while (!isEntero(numerador * denominador));
-        return "\\frac{" + toEntero(numerador * denominador) + "}{" + toEntero(denominador) + "}";
     }
     
     public String numeradorToFrac() {
