@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Ventana extends javax.swing.JFrame {
 
-  private Ecuacion ec;
+  private Equation ec;
 
   public Ventana() {
     initComponents();
@@ -619,7 +619,7 @@ public class Ventana extends javax.swing.JFrame {
     double a = Double.parseDouble(fieldA.getText());
     double b = Double.parseDouble(fieldB.getText());
     double c = Double.parseDouble(fieldC.getText());
-    ec = new Ecuacion(a, b, c);
+    ec = new Equation(a, b, c);
     mostrar();
     if (cb1.isSelected()) {
       jPanel4.setEnabled(true);

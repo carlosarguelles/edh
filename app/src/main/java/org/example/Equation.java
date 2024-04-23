@@ -1,9 +1,12 @@
 package org.example;
 
-public class Ecuacion {
-  private double a;
-  private double b;
-  private double c;
+import java.util.regex.Pattern;
+import org.example.exceptions.ParseEquationException;
+
+public class Equation {
+  public double a;
+  public double b;
+  public double c;
   private char caso;
   private double det;
   private Fraccion raices[];
@@ -12,7 +15,26 @@ public class Ecuacion {
   private double pv1[], pv2[];
   private double c1, c2;
 
-  public Ecuacion(double a, double b, double c) {
+  public static Equation fromString(String s) throws ParseEquationException {
+    var pattern = Pattern.compile("^([-+]?\\d*)y''([-+]?\\d*)y'([-+]?\\d*)y=0$");
+    var matcher = pattern.matcher(s);
+    if (!matcher.find()) {
+      throw new ParseEquationException("Wrong format");
+    }
+    var aStr = matcher.group(1);
+    var bStr = matcher.group(2);
+    var cStr = matcher.group(3);
+    try {
+      var a = Float.parseFloat(aStr);
+      var b = Float.parseFloat(bStr);
+      var c = Float.parseFloat(cStr);
+      return new Equation(a, b, c);
+    } catch (NumberFormatException e) {
+      throw new ParseEquationException("Error parsing values");
+    }
+  }
+
+  public Equation(double a, double b, double c) {
     this.a = a;
     this.b = b;
     this.c = c;
