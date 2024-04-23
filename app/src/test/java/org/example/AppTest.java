@@ -3,12 +3,34 @@
  */
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.example.exceptions.ParseEquationException;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
+  @Test
+  void equationFromString1() throws ParseEquationException {
+    var test = "2y''+3y'-1y=0";
+    var equation = Equation.fromString(test);
+    assertEquals(2, equation.a);
+    assertEquals(3, equation.b);
+    assertEquals(-1, equation.c);
+  }
+
+  @Test
+  void equationFromString2() throws ParseEquationException {
+    var test = "-2y''-5y'-1y=0";
+    var equation = Equation.fromString(test);
+    assertEquals(-2, equation.a);
+    assertEquals(-5, equation.b);
+    assertEquals(-1, equation.c);
+  }
+
+  @Test
+  void equationFromStringShouldThrow() {
+    var test = "-2y'00'-5y'-1y=0";
+    assertThrows(ParseEquationException.class, () -> Equation.fromString(test));
+  }
 }
